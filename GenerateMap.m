@@ -1,8 +1,8 @@
-function [map, goal, start,grid]= GenerateMap()
+function [map, goal, start,grid]= GenerateMap(ver,hor)
 % Show empty Map
 %Size of Map
-Vertical = 10;
-Horizontal = 10;
+Vertical = ver;
+Horizontal =hor;
 %Generate Map as BW Image Every Grid is a 10x10 pixel square bordered by a
 %1 pixel black line
 %Generating one block
@@ -21,13 +21,9 @@ end
 imshow(Map);
 % Accept Click and Mark blocks
 str='';start=[];goal=[];obst=[];
+
 for iter=1:100000
-    's for start';
-    'g for goal';
-    'o for obstacle';
-    'oe for end obstancles';
-    'd for done';
-    prompt='Enter Letter: ';
+    prompt='Enter Letter:(s for start, g for goal, o for obstacle, d for done)';
     str= input(prompt,'s');
     switch str
         case 's'
@@ -53,7 +49,11 @@ for iter=1:100000
             imshow(Map);
             goal = [j,i];
         case 'd'
-            break;
+            if (length(start)==0 || length(goal)==0)
+                'You MUST choose at least a start and goal position'
+            else
+                break;
+            end
         case 'o'
             [x y]=ginput(1);
             [ii i] = min(abs(X-x));

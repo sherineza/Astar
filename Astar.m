@@ -61,6 +61,5 @@ while ~isequal(node(4:5),initial)
     path=[node(4:5); path];
     node=closed(BinA(closed(:,1:2),node(4:5)),:);
 end
-% smap=VisualizePath(path, map)
 path
 end
