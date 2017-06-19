@@ -6,4 +6,4 @@ Read instructions in the Run.m
 -> You can auto-generate a map, with a specific number (default 20) of obtacles
 Keep an eye on the command window for additional commands.
 No online placement of obstacles is allowed, this is not D*.
-Code is not liscenced. 
+Code is not liscenced. You're more than welcome to use.
